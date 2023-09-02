@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mpv --force-window=immediate --volume=30 --profile=$1p --hwdec=opengl $(cat ~/.local/share/videos | dmenu -l 30 | cut -d " " -f 1 )

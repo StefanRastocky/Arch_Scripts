@@ -1,0 +1,33 @@
+Host StevensRPi4b
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/RPi4b-2__estefano__X200II
+	Port 61111
+
+Host 192.168.2.46
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/RPi4b-2__estefano__X200II
+	Port 61111
+
+Host rastockylabs
+  HostName rastockylabs.ddns.net
+	IdentitiesOnly yes
+	User estefano
+	IdentityFile ~/.ssh/RPi4b-2__estefano__X200II
+	Port 61111
+
+Host rastockylabs.ddns.net
+	IdentitiesOnly yes
+	User estefano
+	IdentityFile ~/.ssh/RPi4b-2__estefano__X200II
+	Port 61111
+
+
+Host git
+	HostName rastockylabs.ddns.net
+	IdentitiesOnly yes
+	User git
+	IdentityFile ~/.ssh/RPi4b-2__git__X200II
+	Port 61111
+
+Host *
+	Port 22

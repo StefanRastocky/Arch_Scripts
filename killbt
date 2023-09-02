@@ -1,0 +1,5 @@
+#!/bin/sh
+# kill bluetooth
+
+sudo chown estefano /sys/devices/platform/thinkpad_acpi/bluetooth_enable
+sudo echo 0 > /sys/devices/platform/thinkpad_acpi/bluetooth_enable

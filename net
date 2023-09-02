@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo killall wpa_supplicant dhcpcd ; echo "Connecting..." > /tmp/CurIP.tmp && status_reload
+
+sudo ip link set wls1 up && notify-send "Iface 'wls1' UP!"
+sudo wpa_supplicant -B -i wls1 -c /etc/wpa_supplicant/wpa_supplicant.conf && notify-send "Wpa supplicant UP!"
+sudo dhcpcd wls1 && sleep 0.5 && status_reload && sleep 0.8 && IP=$(cat /tmp/CurIP.tmp) && notify-send "Obtained IP address $IP at Iface wls1" && canberra-gtk-play -i complete -d "WifiConnected" && status
+
+

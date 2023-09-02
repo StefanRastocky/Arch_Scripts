@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mega-du -h $(mega-ls | sed 's/ /\\ /g')

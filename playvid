@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -z $1 ] && PROFILE=720 || PROFILE=$1
+mpv --force-window=immediate --volume=30 --profile=${PROFILE}p --hwdec=opengl $(cat ~/.local/share/videos | dmenu -l 30)

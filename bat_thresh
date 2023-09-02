@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+# set the battery charging thresholds to extend battery lifespan
+echo "Estefano's battery threshold setter."
+echo "#########"
+echo "BATTERY 0"
+echo "#########"
+echo "SETTING:"
+printf "	START CHARGING level to: "
+printf ${2:-70} | sudo tee -a /sys/devices/platform/smapi/BAT${1:-0}/start_charge_thresh
+echo "%"
+printf "	 STOP CHARGING level to: "
+printf ${3:-92} | sudo tee -a /sys/devices/platform/smapi/BAT${1:-0}/stop_charge_thresh
+echo "%"
+echo "####################################"
+#echo 'text' | sudo tee -a /file.txt > /dev/null

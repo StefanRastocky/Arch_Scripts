@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "$1 $(zenity --entry --title="Answer these questions three" --text="What is your quest?")" >> ~/.local/share/videos

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# source an .xprofile
+[ -f ~/.config/.xprofile ] && . ~/.config/.xprofile
+
+# start my window manager
+exec dwm
+
+
+#session=${1:-dwm}
+#case $session in
+#    dwm|dw              ) exec dwm && twmnd;;
+#    kde                 ) exec startplasma-x11;;
+#    xfce|xfce4          ) exec startxfce4;;
+#    lx|lxde             ) exec startlxde;;
+#    *                   ) exec $1;;
+#esac

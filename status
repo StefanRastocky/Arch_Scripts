@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# script with infinite loops to provide current data for status bar
+
+xsetroot -name ""
+
+getIP()
+{
+	[ "$(ip addr | grep wls1: | cut -b 40)" == "U" ] && ip addr | grep "inet 192" | cut -b 10-22 > /tmp/CurIP.tmp || echo "No Connection" > /tmp/CurIP.tmp
+}
+
+while true; do
+	sleep 60
+done &
+
+while true; do
+	date "+%F %R" > /tmp/CurTime.tmp
+	getIP 
+	LOCALTIME=$(cat /tmp/CurTime.tmp)
+	FREEMEM=$(free -h | grep "Mem:" | cut -b 40-43)
+	BATTERY_LEVEL=$(acpi | grep -P -o '[0-9]+(?=%)')
+	[ -f /tmp/CurIP.tmp ] && IP=$(cat /tmp/CurIP.tmp) || IP="No Connection" 
+	VOL=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')
+
+# here the bar line is generated:
+	xsetroot -name "|wls1:$IP📡|$FREEMEM free💿|$VOL%🔊|$BATTERY_LEVEL%⛽|$LOCALTIME" &&
+	
+	sleep 30s
+
+
+done &
+
+

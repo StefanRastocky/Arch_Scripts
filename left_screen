@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#xrandr --output DP2 --auto --left-of LVDS1 && setbg && setkey
+#xrandr --output VGA1 --auto --left-of LVDS1 && setbg && setkey
+xrandr --output HDMI2 --auto --left-of LVDS1 && setbg && setkey
+xset r rate 190 60
+setxkbmap -option caps:swapescape

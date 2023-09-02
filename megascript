@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mega-sync | grep ID -A 40 #> /dev/null 2>&1 | grep ID -A 40
+
+mega-transfers --show-syncs --limit=30 #> /dev/null 2>&1 | grep TYPE -A 35
+
+#while true; do
+#	clear
+#	mega-sync | grep ID -A 40 #> /dev/null 2>&1 | grep ID -A 40
+#	sleep 10
+#done &
+#
+#while true; do
+#	clear
+#	mega-transfers --show-syncs --limit=30
+#	sleep 0.5
+#done &
+

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+spotifyd --no-daemon -u 'rastockystefan@gmail.com' -p 'Jsvsc308!?spot' --bitrate 320 --volume-normalisation
+
+
+
